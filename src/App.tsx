@@ -1,12 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import Button from "./components/Button";
+const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -18,9 +15,13 @@ function App() {
         >
           Learn React
         </a>
+        <Button> Hello </Button>
+        <Button btnType="link" href="#">
+          World
+        </Button>
       </header>
     </div>
   );
-}
+};
 
 export default App;

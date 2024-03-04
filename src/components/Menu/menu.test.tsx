@@ -38,13 +38,13 @@ const generateMenu = (props: MenuProps) => {
 };
 const createStyleFile = () => {
   const cssFile: string = `
-      .viking-submenu {
-        display: none;
-      }
-      .viking-submenu.menu-opened {
-        display:block;
-      }
-    `;
+        .viking-submenu {
+          display: none;
+        }
+        .viking-submenu.menu-opened {
+          display:block;
+        }
+      `;
   const style = document.createElement("style");
   style.innerHTML = cssFile;
   return style;
@@ -89,7 +89,7 @@ describe("test Menu and MenuItem component in default(horizontal) mode", () => {
     menuElement = screen.getByTestId("test-menu");
     activeElement = screen.getByText("active");
     disabledElement = screen.getByText("disabled");
-    //expect(screen.queryByText("drop1")).not.toBeVisible();
+    expect(screen.queryByText("drop1")).not.toBeVisible();
     const dropdownElement = screen.getByText("dropdown");
     fireEvent.mouseEnter(dropdownElement);
     await waitFor(() => {
@@ -99,7 +99,7 @@ describe("test Menu and MenuItem component in default(horizontal) mode", () => {
     expect(testProps.onSelect).toHaveBeenCalledWith("3-0");
     fireEvent.mouseLeave(dropdownElement);
     await waitFor(() => {
-      //expect(screen.queryByText("dropdown")).not.toBeVisible();
+      expect(screen.queryByText("dropdown")).not.toBeVisible();
     });
   });
 });

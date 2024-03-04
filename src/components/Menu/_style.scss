@@ -37,9 +37,9 @@
       margin-left: 3px;
     }
     &:hover {
-      // .arrow-icon {
-      //   transform: rotate(180deg);
-      // }
+      .arrow-icon {
+        transform: rotate(180deg);
+      }
     }
   }
   .is-vertical {

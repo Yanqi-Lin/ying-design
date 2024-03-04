@@ -20,7 +20,11 @@ const App: React.FC = () => {
         >
           Learn React
         </a>
-        <TransMenu defaultOpenSubMenus={["2"]} onSelect={index => alert(index)}>
+        <TransMenu
+          defaultOpenSubMenus={["2"]}
+          onSelect={index => alert(index)}
+          mode="vertical"
+        >
           <TransMenu.Item>
             <Icon icon="check" />
             test 1

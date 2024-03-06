@@ -23,7 +23,7 @@ const App: React.FC = () => {
         <TransMenu
           defaultOpenSubMenus={["2"]}
           onSelect={index => alert(index)}
-          mode="vertical"
+          //mode="vertical"
         >
           <TransMenu.Item>
             <Icon icon="check" />
@@ -33,6 +33,9 @@ const App: React.FC = () => {
           <TransMenu.SubMenu title="test 3">
             <TransMenu.Item>test 3-1</TransMenu.Item>
             <TransMenu.Item disabled>test 3-2</TransMenu.Item>
+            <TransMenu.Item>
+              <Button></Button>
+            </TransMenu.Item>
           </TransMenu.SubMenu>
         </TransMenu>
         {/* <Menu defaultOpenSubMenus={["2"]} onSelect={index => alert(index)}>

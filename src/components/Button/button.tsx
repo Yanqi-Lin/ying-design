@@ -7,6 +7,7 @@ export type ButtonType = "primary" | "default" | "danger" | "link";
 interface BaseButtonProps {
   className?: string;
   disabled?: boolean;
+  /** 控制组件大小 */
   size?: ButtonSize;
   btnType?: ButtonType;
   children: React.ReactNode;
@@ -17,6 +18,7 @@ type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 
+/** 按钮组件 */
 export const Button: FC<ButtonProps> = props => {
   const { btnType, className, disabled, size, children, href, ...restProps } =
     props;

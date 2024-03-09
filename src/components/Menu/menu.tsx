@@ -10,15 +10,15 @@ import { MenuItemProps } from "./menuItem";
 
 type MenuMode = "horizontal" | "vertical";
 export interface BaseMenuProps {
-  /** index of default active item **/
+  /** index of default active item */
   defaultIndex?: string;
   className?: string;
-  /** horizontal or vertical **/
+  /** horizontal or vertical */
   mode?: MenuMode;
   style?: CSSProperties;
-  /** menu items callback func **/
+  /** menu items callback func */
   onSelect?: (selectedIndex: string) => void;
-  /** set menu item default open, only in mode of horizontal **/
+  /** set menu item default open, only in mode of horizontal */
   defaultOpenSubMenus?: string[];
 }
 export type MenuProps = Partial<

@@ -26,7 +26,7 @@ const App: React.FC = () => {
           //mode="vertical"
         >
           <TransMenu.Item>
-            <Icon icon="check" />
+            <Icon icon="check" theme="danger" />
             test 1
           </TransMenu.Item>
           <TransMenu.Item disabled>test 2</TransMenu.Item>

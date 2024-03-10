@@ -1,8 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Icon from "./index";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-const meta = {
-  title: "Component/Button",
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+library.add(fas);
+
+const meta: Meta = {
+  title: "Component/Icon",
   component: Icon,
   parameters: {
     layout: "centered",
@@ -15,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    icon: "primary",
-    children: "Primary",
+    icon: "check",
+    theme: "primary",
   },
 };

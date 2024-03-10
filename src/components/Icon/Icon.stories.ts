@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    icon: "primary",
-    children: "Primary", // 我看Icon的类型定义里面没有显式的声明children属性？虽然没报错，但是确定这样写可以吗？
+    icon: "coffee",
+    theme: "primary",
   },
 };

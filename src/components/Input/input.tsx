@@ -27,16 +27,16 @@ export interface InputProps
 /**
  * Input 输入框 通过鼠标或键盘输入内容，是最基础的表单域的包装。
  *
+ * ### 引用方法
  * ~~~js
- * // 引入方式
- * import { Input } from 'vikingship'
+ * import { Input } from 'yinyin-ui-ts'
  * ~~~
  * 支持 HTMLInput 的所有基本属性
  */
 
 export const Input: FC<InputProps> = props => {
   const { disabled, size, icon, prepend, append, style, ...restProps } = props;
-  const classes = classNames("viking-input-wrapper", {
+  const classes = classNames("yinyin-input-wrapper", {
     [`input-size-${size}`]: size,
     "is-disabled": disabled,
     "input-group": prepend || append,
@@ -49,24 +49,26 @@ export const Input: FC<InputProps> = props => {
     }
     return value;
   };
+  //受控组件(即具有 value 属性)不应该同时也具有 defaultValue 属性
   if ("value" in props) {
     delete restProps.defaultValue;
     restProps.value = fixControlledValue(props.value);
   }
+
   return (
     <div className={classes} style={style}>
-      {prepend && <div className="viking-input-group-prepend">{prepend}</div>}
+      {prepend && <div className="yinyin-input-group-prepend">{prepend}</div>}
       {icon && (
         <div className="icon-wrapper">
           <Icon icon={icon} title={`title-${icon}`} />
         </div>
       )}
       <input
-        className="viking-input-inner"
+        className="yinyin-input-inner"
         disabled={disabled}
         {...restProps}
       />
-      {append && <div className="viking-input-group-append">{append}</div>}
+      {append && <div className="yinyin-input-group-append">{append}</div>}
     </div>
   );
 };

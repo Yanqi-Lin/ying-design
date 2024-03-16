@@ -89,7 +89,9 @@ describe("test Menu and MenuItem component in default(horizontal) mode", () => {
     menuElement = screen.getByTestId("test-menu");
     activeElement = screen.getByText("active");
     disabledElement = screen.getByText("disabled");
-    expect(screen.queryByText("drop1")).not.toBeVisible();
+    // expect(screen.queryByText("drop1")).not.toBeVisible();
+    // 因为此时drop1还未出现，它就是null，直接使用not.toBeVisible肯定会报错，所以使用toBeInTheDocument来检测它是否在HTML文档里
+    expect(screen.queryByText("drop1")).not.toBeInTheDocument();
     const dropdownElement = screen.getByText("dropdown");
     fireEvent.mouseEnter(dropdownElement);
     await waitFor(() => {
@@ -99,7 +101,11 @@ describe("test Menu and MenuItem component in default(horizontal) mode", () => {
     expect(testProps.onSelect).toHaveBeenCalledWith("3-0");
     fireEvent.mouseLeave(dropdownElement);
     await waitFor(() => {
-      expect(screen.queryByText("dropdown")).not.toBeVisible();
+      // 这里的报错，我认为是正常的，因为按照你代码的逻辑，应该是mouseLeave的时候submenu的children消失
+      // 但是你的测试用例里面写的，dropdown是submenu的title，所以不消失是正常的
+      // expect(screen.queryByText("dropdown")).not.toBeVisible();
+      // 如果你想检测效果，那你应该测试queryByText("drop1")的可见性
+      expect(screen.queryByText("drop1")).not.toBeInTheDocument();
     });
   });
 });
@@ -111,13 +117,16 @@ describe("test Menu and MenuItem component in vertical mode", () => {
     const menuElement = screen.getByTestId("test-menu");
     expect(menuElement).toHaveClass("menu-vertical");
   });
-  it("should show dropdown items when click on subMenu for vertical mode", () => {
+  it("should show dropdown items when click on subMenu for vertical mode", async () => {
     container2 = render(generateMenu(testVerProps));
     container2.container.append(createStyleFile());
-    const dropDownItem = screen.queryByText("drop1");
+    // const dropDownItem = screen.queryByText("drop1");
     //expect(dropDownItem).not.toBeVisible();
     fireEvent.click(screen.getByText("dropdown"));
-    expect(dropDownItem).toBeVisible();
+    // 因为事件是异步执行的，所以必须要使用await要等到事件执行完毕之后再来检测drop1的visible
+    await waitFor(() => {
+      expect(screen.queryByText("drop1")).toBeVisible();
+    })
   });
   it("should show subMenu dropdown when defaultOpenSubMenus contains SubMenu index", () => {
     container2 = render(generateMenu(testVerProps));

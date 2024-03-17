@@ -6,6 +6,7 @@ import Button from "./components/Button";
 import TransMenu from "./components/Menu";
 import Icon from "./components/Icon";
 import AutoComplete from "./components/AutoComplete";
+import Progress from "./components/Progress";
 const App: React.FC = () => {
   const handleFetch = (query: string) => {
     return fetch(`https://api.github.com/search/users?q=${query}`)
@@ -64,6 +65,7 @@ const App: React.FC = () => {
         <div style={{ width: "300px" }}>
           <AutoComplete fetchSuggestions={handleFetch} />
         </div>
+        <Progress percent={30} styles={{ width: "300px" }} />
       </header>
     </div>
   );

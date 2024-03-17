@@ -20,8 +20,31 @@ export default meta;
 type Story = StoryObj<typeof AutoComplete>;
 
 // fetch data
-export const getDataSync: Story = {
-  render: () => {
+const showCode = `
+const handleFetchSync = async (query: string) => {
+  try {
+    const response = await fetch(
+      "https://api.github.com/search/users?q=" + query
+    );
+    const data = await response.json();
+    const items = data.items;
+    return items
+      .slice(0, 10)
+      .map((item: any) => ({ value: item.login, ...item }));
+  } catch (error) {
+    console.error("Error fetching GitHub users:", error);
+    throw error;
+  }
+};
+return (
+  <AutoComplete
+    fetchSuggestions={handleFetchSync}
+    placeholder="输入Github用户名"
+  />
+);
+`;
+export const GetDataSync: Story = {
+  render: args => {
     const handleFetchSync = async (query: string) => {
       try {
         const response = await fetch(
@@ -39,6 +62,7 @@ export const getDataSync: Story = {
     };
     return (
       <AutoComplete
+        {...args}
         fetchSuggestions={handleFetchSync}
         onSelect={action("selected")}
         placeholder="输入Github用户名"
@@ -46,11 +70,57 @@ export const getDataSync: Story = {
       />
     );
   },
+  parameters: {
+    docs: {
+      source: {
+        code: showCode,
+      },
+    },
+  },
+};
+
+export const asyncComplete: Story = {
+  name: "支持异步搜索 AutoComplete",
+  parameters: {
+    docs: {
+      description: {
+        story: "可以支持异步搜索。",
+      },
+    },
+  },
+  render: args => {
+    const handleFetch = (query: string) => {
+      return fetch(`https://api.github.com/search/users?q=${query}`)
+        .then(res => res.json())
+        .then(({ items }) => {
+          return items
+            .slice(0, 5)
+            .map((item: any) => ({ value: item.login, ...item }));
+        });
+    };
+    const renderOption = (item: DataSourceType) => {
+      const itemWithGithub = item as DataSourceType;
+      return (
+        <>
+          <p>Name: {itemWithGithub.value}</p>
+        </>
+      );
+    };
+    return (
+      <AutoComplete
+        {...args}
+        placeholder="输入 Github 用户名试试"
+        fetchSuggestions={handleFetch}
+        renderOption={renderOption}
+        onSelect={action("selected")}
+      />
+    );
+  },
 };
 
 // template
 
-export const getDataWithTemplate: Story = {
+export const GetDataWithTemplate: Story = {
   render: () => {
     interface customProps {
       value: string;

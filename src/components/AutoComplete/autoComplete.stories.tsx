@@ -4,35 +4,43 @@ import AutoComplete, {
   AutoCompleteProps,
   DataSourceType,
 } from "./autoComplete";
+import { action } from "@storybook/addon-actions";
 
 const meta = {
   title: "Component/AutoComplete",
   component: AutoComplete,
-  argTypes: { disabled: { control: "boolean" } },
+  argTypes: {},
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
   },
 } satisfies Meta<typeof AutoComplete>;
 export default meta;
+
 type Story = StoryObj<typeof AutoComplete>;
 
 // fetch data
 export const getDataSync: Story = {
-  render: args => {
-    const handleFetchSync = (query: string) => {
-      return fetch("https://api.github.com/search/users?q=" + query)
-        .then(res => res.json())
-        .then(({ items }) => {
-          console.log(items);
-          return items
-            .slice(0, 10)
-            .map((item: any) => ({ value: item.login, ...item }));
-        });
+  render: () => {
+    const handleFetchSync = async (query: string) => {
+      try {
+        const response = await fetch(
+          "https://api.github.com/search/users?q=" + query
+        );
+        const data = await response.json();
+        const items = data.items;
+        return items
+          .slice(0, 10)
+          .map((item: any) => ({ value: item.login, ...item }));
+      } catch (error) {
+        console.error("Error fetching GitHub users:", error);
+        throw error;
+      }
     };
     return (
       <AutoComplete
         fetchSuggestions={handleFetchSync}
+        onSelect={action("selected")}
         placeholder="输入Github用户名"
         style={{ width: "300px" }}
       />
@@ -84,8 +92,9 @@ export const getDataWithTemplate: Story = {
 };
 
 // disable
-export const disabled: Story = {
+export const BasedOnInput: Story = {
   args: {
     disabled: true,
+    icon: "check",
   },
 };

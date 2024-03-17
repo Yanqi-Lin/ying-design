@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
 import Input from "./index";
 
 const meta = {
@@ -14,28 +13,28 @@ const meta = {
 } satisfies Meta<typeof Input>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
   args: {
-    value: "请输入......",
+    placeholder: "请输入......",
   },
 };
 export const Icon: Story = {
   args: {
-    value: "请输入......",
+    placeholder: "请输入......",
     icon: "magnifying-glass",
   },
 };
 export const prepend: Story = {
   args: {
-    value: "请输入......",
+    placeholder: "请输入......",
     prepend: "Http://",
   },
 };
 export const append: Story = {
   args: {
-    value: "请输入......",
+    placeholder: "请输入......",
     append: ".com",
   },
 };

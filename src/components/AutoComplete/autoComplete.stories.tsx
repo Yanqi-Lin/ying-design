@@ -8,6 +8,7 @@ import AutoComplete, {
 const meta = {
   title: "Component/AutoComplete",
   component: AutoComplete,
+  argTypes: { disabled: { control: "boolean" } },
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
@@ -18,7 +19,7 @@ type Story = StoryObj<typeof AutoComplete>;
 
 // fetch data
 export const getDataSync: Story = {
-  render: () => {
+  render: args => {
     const handleFetchSync = (query: string) => {
       return fetch("https://api.github.com/search/users?q=" + query)
         .then(res => res.json())
@@ -79,5 +80,12 @@ export const getDataWithTemplate: Story = {
         style={{ width: "300px" }}
       />
     );
+  },
+};
+
+// disable
+export const disabled: Story = {
+  args: {
+    disabled: true,
   },
 };

@@ -65,6 +65,7 @@ export const GetDataSync: Story = {
         {...args}
         fetchSuggestions={handleFetchSync}
         onSelect={action("selected")}
+        onChange={action("changed")}
         placeholder="输入Github用户名"
         style={{ width: "300px" }}
       />

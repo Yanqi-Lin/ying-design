@@ -207,7 +207,7 @@ export const Upload: FC<UploadProps> = props => {
       });
   };
   return (
-    <div className="upload-component" onClick={handleClick}>
+    <div className="upload-component">
       <div
         className="upload-input"
         style={{ display: "inline-block" }}

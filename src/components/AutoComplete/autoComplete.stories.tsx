@@ -9,6 +9,13 @@ import { action } from "@storybook/addon-actions";
 const meta = {
   title: "Component/AutoComplete",
   component: AutoComplete,
+  decorators: [
+      (Story) => (
+          <div style={{ width: '300px' }}>
+              <Story />
+          </div>
+      )
+  ]
   argTypes: {},
   tags: ["autodocs"],
   parameters: {
@@ -64,10 +71,7 @@ export const GetDataSync: Story = {
       <AutoComplete
         {...args}
         fetchSuggestions={handleFetchSync}
-        onSelect={action("selected")}
-        onChange={action("changed")}
         placeholder="输入Github用户名"
-        style={{ width: "300px" }}
       />
     );
   },
@@ -77,45 +81,6 @@ export const GetDataSync: Story = {
         code: showCode,
       },
     },
-  },
-};
-
-export const asyncComplete: Story = {
-  name: "支持异步搜索 AutoComplete",
-  parameters: {
-    docs: {
-      description: {
-        story: "可以支持异步搜索。",
-      },
-    },
-  },
-  render: args => {
-    const handleFetch = (query: string) => {
-      return fetch(`https://api.github.com/search/users?q=${query}`)
-        .then(res => res.json())
-        .then(({ items }) => {
-          return items
-            .slice(0, 5)
-            .map((item: any) => ({ value: item.login, ...item }));
-        });
-    };
-    const renderOption = (item: DataSourceType) => {
-      const itemWithGithub = item as DataSourceType;
-      return (
-        <>
-          <p>Name: {itemWithGithub.value}</p>
-        </>
-      );
-    };
-    return (
-      <AutoComplete
-        {...args}
-        placeholder="输入 Github 用户名试试"
-        fetchSuggestions={handleFetch}
-        renderOption={renderOption}
-        onSelect={action("selected")}
-      />
-    );
   },
 };
 
@@ -156,7 +121,6 @@ export const GetDataWithTemplate: Story = {
         fetchSuggestions={handleFetchTemplate}
         renderOption={renderOption}
         placeholder="输入球员名称"
-        style={{ width: "300px" }}
       />
     );
   },

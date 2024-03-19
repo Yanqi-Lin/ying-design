@@ -10,12 +10,12 @@ const meta = {
   title: "Component/AutoComplete",
   component: AutoComplete,
   decorators: [
-      (Story) => (
-          <div style={{ width: '300px' }}>
-              <Story />
-          </div>
-      )
-  ]
+    Story => (
+      <div style={{ width: "300px" }}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {},
   tags: ["autodocs"],
   parameters: {

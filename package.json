@@ -1,37 +1,49 @@
 {
   "name": "yinyin-ui-ts",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "React UI Components library",
+  "author": "Yinkee Lam",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "Components",
+    "UI",
+    "React"
+  ],
+  "homepage": "https://github.com/Yanqi-Lin/yinyin-ui-ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yanqi-Lin/yinyin-ui-ts"
+  },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/classnames": "^2.3.1",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.83",
-    "@types/react": "^18.2.58",
-    "@types/react-dom": "^18.2.19",
     "axios": "^1.6.8",
     "classnames": "^2.5.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "react-transition-group": "^4.4.5",
-    "ts-node": "^10.9.2",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "react-transition-group": "^4.4.5"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && npm run build-ts && npm run build-css",
+    "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepublish": "npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +65,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@storybook/addon-essentials": "^7.6.17",
     "@storybook/addon-interactions": "^7.6.17",
     "@storybook/addon-links": "^7.6.17",
@@ -63,14 +76,30 @@
     "@storybook/react": "^7.6.17",
     "@storybook/react-webpack5": "^7.6.17",
     "@storybook/test": "^7.6.17",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/classnames": "^2.3.1",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.83",
+    "@types/react": "^18.2.58",
+    "@types/react-dom": "^18.2.19",
     "@types/react-transition-group": "^4.4.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
     "eslint-plugin-storybook": "^0.8.0",
+    "node-sass": "^7.0.3",
     "prop-types": "^15.8.1",
     "resolve-url-loader": "^5.0.0",
+    "rimraf": "^5.0.5",
     "sass": "^1.71.1",
     "sass-loader": "^14.1.1",
     "storybook": "^7.6.17",
     "style-loader": "^3.3.4",
-    "webpack": "^5.90.3"
+    "webpack": "^5.90.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
   }
 }

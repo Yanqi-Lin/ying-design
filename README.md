@@ -1,6 +1,8 @@
-# YinyinUI
+<h1 align="center">
+<img src="/public/logo.svg" align="center" width="55px"/>YinyinUI
+</h1>
 
-一个基于「 React 」框架的个性化 UI 组件库。
+<p align="center">一个基于「 React 」框架的个性化 UI 组件库。</p>
 
 ## ✨ 特性
 
@@ -46,7 +48,7 @@ const App = () => (
 
 ## 🔗 链接
 
-- [文档站](https://yinyin-ui-ts.vercel.app/)
+- [演示文档](https://yinyin-ui-ts.vercel.app/)
 - [npm 发布](https://www.npmjs.com/package/yinyin-ui-ts)
 
 ## License

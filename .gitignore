@@ -9,7 +9,8 @@
 /coverage
 
 # production
-/build
+/dist
+/stories_static
 
 # misc
 .DS_Store

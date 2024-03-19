@@ -1,6 +1,7 @@
 import { Meta } from "@storybook/addon-docs";
+import Logo from "../../public/logo.png";
 
-<Meta title="yinyinUI 介绍" />
+<Meta title="Introduction" />
 
 <style>
   {`
@@ -10,7 +11,7 @@ import { Meta } from "@storybook/addon-docs";
       align-items:center;
       margin-bottom:20px;
     }
-    .logo__and {
+    .logo-and {
       line-height: 100px;
       display: inline-block;
       margin: 0 20px;
@@ -29,13 +30,13 @@ import { Meta } from "@storybook/addon-docs";
   `}
 </style>
 
-# viiDesign-UI
+# Yinyin UI
 
 一个基于「 React 」框架的个性化 UI 组件库
 
 <div className="logo">
-  {/* <img src={Logo1} alt="logo" /> */}
-  <div className="logo__and">+</div>
+  <img src={Logo} alt="logo" />
+  <div className="logo-and">+</div>
   <img
     src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
     className="react-logo"
@@ -46,7 +47,9 @@ import { Meta } from "@storybook/addon-docs";
 
 ## 🎙 介绍
 
-为了满足设计规范要求，本团队自行开发了「 yinyinUI 」—— 一个基于 React 的 UI 组件库。 viiDesign 提供了丰富的组件和功能，在满足不同业务需求的同时，也极具美观和协调性。
+<br />
+
+为了满足设计规范要求，本团队自行开发了「 yinyinUI 」—— 一个基于 React 的 UI 组件库。 yinyinUI 提供了丰富的组件和功能，在满足不同业务需求的同时，也极具美观和协调性。
 
 <br />
 
@@ -67,35 +70,15 @@ import { Meta } from "@storybook/addon-docs";
 
 推荐使用 npm 来安装，享受生态圈和工具带来的便利，可以在开发环境轻松调试，也可以在生态环境打包部署使用。
 
-`$ npm i yinyin-ui-ts`
-
-### 浏览器引入
-
-在浏览器中使用 `script` 和 `link` 标签直接引入文件，并使用全局变量 `yinyin-ui-ts`。
-
-> 注意：`index.umd.js` 依赖 `react`、`react-dom`，请确保提前引入这些文件。
-
-引入 css：
-
-```html
-<link rel="stylesheet" href="https://unpkg.com/yinyin-ui-ts/dist/index.css" />
+```shell
+npm i yinyin-ui-ts
 ```
-
-引入 js:
-
-```html
-<script src="https://unpkg.com/yinyin-ui-ts/dist/index.umd.js"></script>
-```
-
-<br />
 
 ## 💡 按需加载
 
 `yinyin-ui-ts` 默认支持基于 ES modules 的 tree shaking。
 
 `yinyin-ui-ts`使用 TypeScript 进行书写并提供了完整的定义文件。
-
-<br />
 
 ## 🔨 示例
 
@@ -109,14 +92,14 @@ import "yinyin-ui-ts/dist/index.css";
 
 ### 2. 使用组件
 
-```js
+```jsx
 import React from "react";
 import { Button } from "yinyin-ui-ts";
 
 const App = () => (
   <>
     <Button btnType="primary" size="lg">
-      PRESS ME
+      点击按钮
     </Button>
   </>
 );
@@ -126,7 +109,7 @@ const App = () => (
 
 ## 🔗 链接
 
-- [文档站](https://viidesign.vercel.app/)
+- [文档站](https://yinyin-ui-ts.vercel.app)
 - [组件库源码仓库](https://github.com/Yanqi-Lin/yinyin-ui-ts)
 
 <br />

@@ -1,0 +1,138 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="yinyinUI 介绍" />
+
+<style>
+  {`
+    .logo {
+      height: 80px;
+      display: flex;
+      align-items:center;
+      margin-bottom:20px;
+    }
+    .logo__and {
+      line-height: 100px;
+      display: inline-block;
+      margin: 0 20px;
+      color: #aaa;
+      font-size: 30px;
+      font-weight:900;
+    }
+    .logo img {
+      width: 100px;
+      height:100px
+    }
+    .logo .react-logo{
+      width: 80px;
+      height:80px
+    }
+  `}
+</style>
+
+# viiDesign-UI
+
+一个基于「 React 」框架的个性化 UI 组件库
+
+<div className="logo">
+  {/* <img src={Logo1} alt="logo" /> */}
+  <div className="logo__and">+</div>
+  <img
+    src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+    className="react-logo"
+  />
+</div>
+
+<br />
+
+## 🎙 介绍
+
+为了满足设计规范要求，本团队自行开发了「 yinyinUI 」—— 一个基于 React 的 UI 组件库。 viiDesign 提供了丰富的组件和功能，在满足不同业务需求的同时，也极具美观和协调性。
+
+<br />
+
+## ✨ 特性
+
+- 👑 自主设计的符合直觉的交互语言和视觉风格；
+- 📦 开箱即用的高质量 `React` 组件；
+- 🛡️ 使用 `TypeScript` 开发，提供完整的类型定义文件；
+- 🎃 友好的 API ，自由灵活地使用空间；
+- 🎠 细致、漂亮的 UI；
+- 📁 清晰明了的演示站点，细致的文档。
+
+<br />
+
+## 📦 安装
+
+### 使用 npm 安装
+
+推荐使用 npm 来安装，享受生态圈和工具带来的便利，可以在开发环境轻松调试，也可以在生态环境打包部署使用。
+
+`$ npm i yinyin-ui-ts`
+
+### 浏览器引入
+
+在浏览器中使用 `script` 和 `link` 标签直接引入文件，并使用全局变量 `yinyin-ui-ts`。
+
+> 注意：`index.umd.js` 依赖 `react`、`react-dom`，请确保提前引入这些文件。
+
+引入 css：
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/yinyin-ui-ts/dist/index.css" />
+```
+
+引入 js:
+
+```html
+<script src="https://unpkg.com/yinyin-ui-ts/dist/index.umd.js"></script>
+```
+
+<br />
+
+## 💡 按需加载
+
+`yinyin-ui-ts` 默认支持基于 ES modules 的 tree shaking。
+
+`yinyin-ui-ts`使用 TypeScript 进行书写并提供了完整的定义文件。
+
+<br />
+
+## 🔨 示例
+
+### 1. 引入样式
+
+在`index.tsx(.jsx)`中：
+
+```js
+import "yinyin-ui-ts/dist/index.css";
+```
+
+### 2. 使用组件
+
+```js
+import React from "react";
+import { Button } from "yinyin-ui-ts";
+
+const App = () => (
+  <>
+    <Button btnType="primary" size="lg">
+      PRESS ME
+    </Button>
+  </>
+);
+```
+
+<br />
+
+## 🔗 链接
+
+- [文档站](https://viidesign.vercel.app/)
+- [组件库源码仓库](https://github.com/Yanqi-Lin/yinyin-ui-ts)
+
+<br />
+
+## 👩‍💻 开发人员
+
+[@Yinkee](https://github.com/Yanqi-Lin)
+
+如果你希望参与贡献，欢迎 Pull Request ！

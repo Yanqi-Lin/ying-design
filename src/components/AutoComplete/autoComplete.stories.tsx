@@ -1,10 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import AutoComplete, {
-  AutoCompleteProps,
-  DataSourceType,
-} from "./autoComplete";
-import { action } from "@storybook/addon-actions";
+import AutoComplete, { DataSourceType } from "./autoComplete";
 
 const meta = {
   title: "Component/AutoComplete",
@@ -87,7 +83,7 @@ export const GetDataSync: Story = {
 // template
 
 export const GetDataWithTemplate: Story = {
-  render: () => {
+  render: args => {
     interface customProps {
       value: string;
       number: number;
@@ -118,18 +114,11 @@ export const GetDataWithTemplate: Story = {
     };
     return (
       <AutoComplete
+        {...args}
         fetchSuggestions={handleFetchTemplate}
         renderOption={renderOption}
         placeholder="输入球员名称"
       />
     );
-  },
-};
-
-// disable
-export const BasedOnInput: Story = {
-  args: {
-    disabled: true,
-    icon: "check",
   },
 };

@@ -47,7 +47,7 @@ export const AutoComplete: FC<AutoCompleteProps> = props => {
   // 获取推荐搜索内容
   useEffect(() => {
     if (debouncedValue && triggerSearchRef.current) {
-      setSuggestions([]);
+      //setSuggestions([]);
       const results = fetchSuggestions(debouncedValue);
       if (results instanceof Promise) {
         setLoading(true);
@@ -69,6 +69,21 @@ export const AutoComplete: FC<AutoCompleteProps> = props => {
     }
     setHighlightIndex(-1);
   }, [debouncedValue, fetchSuggestions]);
+  // 处理输入
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.trim();
+    setInputValue(value);
+    triggerSearchRef.current = true;
+  };
+  // 处理选中项
+  const handleSelect = (item: DataSourceType) => {
+    setInputValue(item.value);
+    setShowDropdown(false);
+    if (onSelect) {
+      onSelect(item);
+    }
+    triggerSearchRef.current = false;
+  };
   // 处理高亮边界问题
   const highLight = (index: number) => {
     if (index < 0) index = 0;
@@ -97,21 +112,6 @@ export const AutoComplete: FC<AutoCompleteProps> = props => {
       default:
         break;
     }
-  };
-  // 处理选中项
-  const handleSelect = (item: DataSourceType) => {
-    setInputValue(item.value);
-    setShowDropdown(false);
-    if (onSelect) {
-      onSelect(item);
-    }
-    triggerSearchRef.current = false;
-  };
-  // 处理输入
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.trim();
-    setInputValue(value);
-    triggerSearchRef.current = true;
   };
   // 渲染模版
   const renderTemplate = (item: DataSourceType) => {

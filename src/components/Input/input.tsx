@@ -29,7 +29,7 @@ export interface InputProps
  *
  * ### 引用方法
  * ~~~js
- * import { Input } from 'yinyin-ui-ts'
+ * import { Input } from 'ying-ui'
  * ~~~
  * 支持 HTMLInput 的所有基本属性
  */

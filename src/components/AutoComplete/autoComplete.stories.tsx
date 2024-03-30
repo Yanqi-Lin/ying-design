@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import AutoComplete, { DataSourceType } from "./autoComplete";
 
 const meta = {
-  title: "Component/数据录入/AutoComplete",
+  title: "Component/AutoComplete",
   component: AutoComplete,
   decorators: [
     Story => (

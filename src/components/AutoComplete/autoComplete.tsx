@@ -32,7 +32,7 @@ export interface AutoCompleteProps extends Omit<InputProps, "onSelect"> {
  * AutoComplete 是一个带提示的文本输入框，在需要输入建议/辅助提示时使用。
  * ### 引用方法
  * ~~~js
- * import { AutoComplete } from ‘yinyin-ui-ts'
+ * import { AutoComplete } from ‘ying-ui'
  * ~~~
  */
 export const AutoComplete: FC<AutoCompleteProps> = props => {

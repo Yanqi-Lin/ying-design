@@ -26,19 +26,12 @@ const meta: Meta<typeof Upload> = {
   parameters: {
     layout: "centered",
   },
-  decorators: [
-    Story => (
-      <div style={{ marginBottom: "100px" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 export default meta;
 type Story = StoryObj<typeof Upload>;
 
 export const ClickUpload: Story = {
-  name: "点击 Select",
+  name: "点击上传",
   parameters: {
     docs: {
       description: {
@@ -69,7 +62,7 @@ export const ClickUpload: Story = {
 };
 
 export const DragUpload: Story = {
-  name: "拖拽 Select",
+  name: "拖拽上传",
   parameters: {
     docs: {
       description: {
@@ -77,6 +70,13 @@ export const DragUpload: Story = {
       },
     },
   },
+  decorators: [
+    Story => (
+      <div style={{ height: "200px" }}>
+        <Story />
+      </div>
+    ),
+  ],
   render: args => (
     <Upload
       action="https://jsonplaceholder.typicode.com/posts"
@@ -97,7 +97,7 @@ export const DragUpload: Story = {
 };
 
 export const UploadPNGOnly: Story = {
-  name: "只上传 png 图片 Select",
+  name: "支持设置上传限制",
   parameters: {
     docs: {
       description: {

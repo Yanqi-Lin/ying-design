@@ -28,7 +28,13 @@ export interface AutoCompleteProps extends Omit<InputProps, "onSelect"> {
   /** 支持自定义渲染下拉项，返回 ReactElement */
   renderOption?: (item: DataSourceType) => ReactElement;
 }
-
+/**
+ * AutoComplete 是一个带提示的文本输入框，在需要输入建议/辅助提示时使用。
+ * ### 引用方法
+ * ~~~js
+ * import { AutoComplete } from ‘yinyin-ui-ts'
+ * ~~~
+ */
 export const AutoComplete: FC<AutoCompleteProps> = props => {
   const { fetchSuggestions, onSelect, value, renderOption, ...restProps } =
     props;

@@ -3,7 +3,7 @@ import Button from "./components/Button";
 // import Menu from "./components/Menu/menu";
 // import MenuItem from "./components/Menu/menuItem";
 // import SubMenu from "./components/Menu/subMenu";
-import TransMenu from "./components/Menu";
+import Menu from "./components/Menu";
 import Icon from "./components/Icon";
 import AutoComplete from "./components/AutoComplete";
 import Progress from "./components/Progress";
@@ -32,24 +32,24 @@ const App: React.FC = () => {
         >
           Learn React
         </a>
-        <TransMenu
+        <Menu
           defaultOpenSubMenus={["2"]}
           onSelect={index => alert(index)}
           //mode="vertical"
         >
-          <TransMenu.Item>
+          <Menu.Item>
             <Icon icon="check" theme="danger" />
             test 1
-          </TransMenu.Item>
-          <TransMenu.Item disabled>test 2</TransMenu.Item>
-          <TransMenu.SubMenu title="test 3">
-            <TransMenu.Item>test 3-1</TransMenu.Item>
-            <TransMenu.Item disabled>test 3-2</TransMenu.Item>
-            <TransMenu.Item>
+          </Menu.Item>
+          <Menu.Item disabled>test 2</Menu.Item>
+          <Menu.SubMenu title="test 3">
+            <Menu.Item>test 3-1</Menu.Item>
+            <Menu.Item disabled>test 3-2</Menu.Item>
+            <Menu.Item>
               <Button></Button>
-            </TransMenu.Item>
-          </TransMenu.SubMenu>
-        </TransMenu>
+            </Menu.Item>
+          </Menu.SubMenu>
+        </Menu>
         {/* <Menu defaultOpenSubMenus={["2"]} onSelect={index => alert(index)}>
           <MenuItem>test 1</MenuItem>
           <MenuItem disabled>test 2</MenuItem>

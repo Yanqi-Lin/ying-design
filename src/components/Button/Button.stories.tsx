@@ -1,49 +1,158 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
 import Button from "./index";
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: "Component/Button",
   component: Button,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
-  //   // More on argTypes: https://storybook.js.org/docs/api/argtypes
 } satisfies Meta<typeof Button>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
+export const Default: Story = {
+  name: "默认按钮",
+  parameters: {
+    docs: {
+      description: {
+        story: "默认按钮,常见按钮设计。",
+      },
+    },
+  },
   args: {
-    btnType: "primary",
-    children: "Primary",
+    children: "default",
   },
 };
 
 export const Link: Story = {
-  args: {
-    btnType: "link",
-    children: "link",
-    href: "github.com",
+  name: "不同类型的按钮",
+  parameters: {
+    docs: {
+      description: {
+        story: "有4种类型的按钮可供选择：primary、default、danger、link。",
+      },
+      source: {
+        code: `
+ <Button
+  btnType="primary"
+  style={{ marginRight: "10px", marginTop: "10px" }}
+>
+  danger button
+</Button>
+<Button
+  btnType="default"
+  style={{ marginRight: "10px", marginTop: "10px" }}
+>
+  primary button
+</Button>
+<Button
+  btnType="danger"
+  style={{ marginRight: "10px", marginTop: "10px" }}
+>
+  default button
+</Button>
+<Button
+  btnType="link"
+  href="https://github.com"
+  style={{ marginRight: "10px", marginTop: "10px" }}
+>
+  link button
+</Button>
+`,
+      },
+    },
   },
+  render: () => (
+    <>
+      <Button
+        btnType="primary"
+        style={{ marginRight: "10px", marginTop: "10px" }}
+      >
+        primary button
+      </Button>
+      <Button
+        btnType="default"
+        style={{ marginRight: "10px", marginTop: "10px" }}
+      >
+        default button
+      </Button>
+      <Button
+        btnType="danger"
+        style={{ marginRight: "10px", marginTop: "10px" }}
+      >
+        danger button
+      </Button>
+      <Button
+        btnType="link"
+        href="https://github.com"
+        style={{ marginRight: "10px", marginTop: "10px" }}
+      >
+        link button
+      </Button>
+    </>
+  ),
 };
 
-export const Large: Story = {
-  args: {
-    size: "lg",
-    children: "Button",
+export const Sizes: Story = {
+  name: "不同大小的按钮",
+  parameters: {
+    docs: {
+      description: {
+        story: "除默认大小外，有2种大小的按钮可供选择：lg、sm。",
+      },
+      source: {
+        code: `
+ <Button
+  btnType="default"
+  size="lg"
+  style={{ marginRight: "10px" }}
+>
+  large button
+</Button>
+<Button btnType="default" style={{ marginRight: "10px" }}>
+  default button
+</Button>
+<Button
+  btnType="default"
+  size="sm"
+>
+  small button
+</Button>
+`,
+      },
+    },
   },
+  render: () => (
+    <>
+      <Button btnType="default" size="lg" style={{ marginRight: "10px" }}>
+        large button
+      </Button>
+      <Button btnType="default" style={{ marginRight: "10px" }}>
+        default button
+      </Button>
+      <Button btnType="default" size="sm">
+        small button
+      </Button>
+    </>
+  ),
 };
 
-export const Small: Story = {
+export const Disabled: Story = {
+  name: "不可用状态",
+  parameters: {
+    docs: {
+      description: {
+        story: "添加 disabled 属性即可让按钮处于不可用状态。",
+      },
+    },
+  },
   args: {
-    size: "sm",
+    btnType: "primary",
+    disabled: true,
     children: "Button",
   },
 };

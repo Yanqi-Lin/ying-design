@@ -102,7 +102,7 @@
     &.is-active,
     &:hover {
       border-bottom: 0px;
-      border-left: $menu-item-active-border-width solid $menu-item-active-color;
+      // border-left: $menu-item-active-border-width solid $menu-item-active-color;
     }
   }
 }

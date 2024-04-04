@@ -14,6 +14,7 @@ export default meta;
 type Story = StoryObj<typeof Progress>;
 
 export const Primary: Story = {
+  name: "标准进度条",
   args: {
     percent: 30,
     styles: {

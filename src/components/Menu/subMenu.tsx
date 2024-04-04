@@ -42,7 +42,7 @@ const SubMenu: FC<SubMenuProps> = props => {
     e.preventDefault();
     timer = setTimeout(() => {
       setOpen(toggle);
-    }, 300);
+    }, 100);
   };
   const clickEvents =
     context.mode === "vertical"

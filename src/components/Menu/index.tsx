@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Menu, { MenuProps } from "./menu";
+import BaseMenu, { MenuProps } from "./menu";
 import SubMenu, { SubMenuProps } from "./subMenu";
 import MenuItem, { MenuItemProps } from "./menuItem";
 
@@ -7,9 +7,9 @@ export type IMenuComponent = FC<MenuProps> & {
   Item: FC<MenuItemProps>;
   SubMenu: FC<SubMenuProps>;
 };
-const TransMenu = Menu as IMenuComponent;
+const Menu = BaseMenu as IMenuComponent;
 
-TransMenu.Item = MenuItem;
-TransMenu.SubMenu = SubMenu;
+Menu.Item = MenuItem;
+Menu.SubMenu = SubMenu;
 
-export default TransMenu;
+export default Menu;

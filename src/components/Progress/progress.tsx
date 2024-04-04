@@ -15,11 +15,11 @@ export interface ProgressProps {
 }
 
 /**
- * 进度条。
+ * 进度条，用于展示操作的当前进度。
  *
  * ### 引用方法
  * ~~~js
- * import { Progress } from 'yinyin-ui-ts'
+ * import { Progress } from 'ying-ui'
  * ~~~
  */
 export const Progress: FC<ProgressProps> = props => {

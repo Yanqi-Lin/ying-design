@@ -10,15 +10,17 @@ import { MenuItemProps } from "./menuItem";
 
 type MenuMode = "horizontal" | "vertical";
 export interface BaseMenuProps {
-  /** index of default active item */
+  /** 默认选中索引值 */
   defaultIndex?: string;
+  /** 自定义类名 */
   className?: string;
-  /** horizontal or vertical */
+  /** 排列模式：水平排列或垂直排列 */
   mode?: MenuMode;
+  /** 自定义样式 */
   style?: CSSProperties;
-  /** menu items callback func */
+  /** 被选中时调用 */
   onSelect?: (selectedIndex: string) => void;
-  /** set menu item default open, only in mode of horizontal */
+  /** 设置默认展开的下拉菜单项，只有垂直排列时生效，与indx属性配合使用 */
   defaultOpenSubMenus?: string[];
 }
 export type MenuProps = Partial<
@@ -32,8 +34,19 @@ interface IMenuContext {
   defaultOpenSubMenus?: string[];
 }
 export const MenuContext = createContext<IMenuContext>({ index: "0" });
+/**
+ * 为页面和功能提供导航的菜单列表。
+ * - Menu.SubMenu 下拉菜单，index属性，自定义菜单项索引值; title属性，自定义菜单项标题。
+ * - Menu.Item 子菜单，iindex属性，自定义菜单项索引值; disabled属性，设置禁用状态。
+ *
+ * ### 引用方法
+ * ~~~js
+ * import { Menu } from 'ying-ui'
+ * //然后可以使用 Menu.Item 和 Menu.SubMenu 访问选项和子下拉菜单组件
+ * ~~~
+ */
 
-export const Menu: FC<MenuProps> = props => {
+export const BaseMenu: FC<MenuProps> = props => {
   const {
     className,
     mode,
@@ -87,10 +100,10 @@ export const Menu: FC<MenuProps> = props => {
   );
 };
 
-Menu.defaultProps = {
+BaseMenu.defaultProps = {
   defaultIndex: "0",
   mode: "horizontal",
   defaultOpenSubMenus: [],
 };
 
-export default Menu;
+export default BaseMenu;

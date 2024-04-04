@@ -52,7 +52,7 @@ export interface UploadProps {
  * 支持通过选择文件或者拖拽文件进行上传。
  * ### 引用方法
  * ~~~js
- * import { Upload } from ‘yinyin-ui-ts'
+ * import { Upload } from ‘ying-design'
  * ~~~
  */
 export const Upload: FC<UploadProps> = props => {

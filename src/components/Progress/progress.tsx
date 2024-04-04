@@ -19,7 +19,7 @@ export interface ProgressProps {
  *
  * ### 引用方法
  * ~~~js
- * import { Progress } from 'ying-ui'
+ * import { Progress } from 'ying-design'
  * ~~~
  */
 export const Progress: FC<ProgressProps> = props => {

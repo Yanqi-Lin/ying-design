@@ -29,7 +29,7 @@ export interface InputProps
  *
  * ### 引用方法
  * ~~~js
- * import { Input } from 'ying-ui'
+ * import { Input } from 'ying-design'
  * ~~~
  */
 

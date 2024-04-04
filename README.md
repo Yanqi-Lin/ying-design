@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="/public/logo.svg" align="center" width="55px"/>YingUI
+<img src="/public/logo.svg" align="center" width="55px"/>Ying Design
 </h1>
 
 <p align="center">一个基于「 React 」框架的个性化 UI 组件库。</p>
@@ -18,7 +18,7 @@
 ### 使用 npm 安装
 
 ```shell
-$ npm i ying-ui
+$ npm i ying-design
 ```
 
 ## 🔨 示例
@@ -28,14 +28,14 @@ $ npm i ying-ui
 在`index.tsx(.jsx)`中：
 
 ```js
-import "ying-ui/dist/index.css";
+import "ying-design/dist/index.css";
 ```
 
 ### 2. 使用组件
 
 ```js
 import React from "react";
-import { Button } from "ying-ui";
+import { Button } from "ying-design";
 
 const App = () => (
   <>
@@ -49,7 +49,7 @@ const App = () => (
 ## 🔗 链接
 
 - [演示文档](https://yinyin-ui-ts.vercel.app/)
-- [npm 发布](https://www.npmjs.com/package/ying-ui)
+- [npm 发布](https://www.npmjs.com/package/ying-design)
 
 ## License
 

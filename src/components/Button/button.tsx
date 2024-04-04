@@ -25,7 +25,7 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 /** 按钮组件，用于开始一个即时操作。
  * ### 引用方法
  * ```js
- * import { Button } from 'ying-ui'
+ * import { Button } from 'ying-design'
  * ```
  */
 export const Button: FC<ButtonProps> = props => {

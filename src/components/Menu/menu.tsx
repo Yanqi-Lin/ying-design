@@ -41,7 +41,7 @@ export const MenuContext = createContext<IMenuContext>({ index: "0" });
  *
  * ### 引用方法
  * ~~~js
- * import { Menu } from 'ying-ui'
+ * import { Menu } from 'ying-design'
  * //然后可以使用 Menu.Item 和 Menu.SubMenu 访问选项和子下拉菜单组件
  * ~~~
  */

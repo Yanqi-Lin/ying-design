@@ -1,9 +1,9 @@
 {
-  "name": "ying-ui",
+  "name": "ying-design",
   "version": "0.1.0",
   "private": false,
   "description": "React UI Components library",
-  "author": "Yinkee Lam",
+  "author": "yinkeelam",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,10 +13,10 @@
     "UI",
     "React"
   ],
-  "homepage": "https://github.com/Yanqi-Lin/yinyin-ui-ts",
+  "homepage": "https://github.com/Yanqi-Lin/ying-design",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Yanqi-Lin/yinyin-ui-ts"
+    "url": "https://github.com/Yanqi-Lin/ying-design"
   },
   "files": [
     "dist"
